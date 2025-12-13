@@ -1,4 +1,5 @@
 import telebot
+import random
 
     # Замени 'TOKEN' на токен твоего бота
     # Этот токен ты получаешь от BotFather, чтобы бот мог работать
@@ -16,6 +17,14 @@ def send_hello(message):
 def send_bye(message):
     bot.reply_to(message, "Пока! Удачи!")
     
+@bot.message_handler(commands=['pw'])
+def gen_pass(pass_length):
+    elements = "+-/*!&$#?=@<>123456789"
+    password = ""
+    for i in range(pass_length):
+        password += random.choice(elements)
+    return password
+
     
 @bot.message_handler(func=lambda message: True)
 def echo_all(message):
