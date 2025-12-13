@@ -1,5 +1,6 @@
 import telebot
 import random
+from bot_logic import gen_pass
 
     # Замени 'TOKEN' на токен твоего бота
     # Этот токен ты получаешь от BotFather, чтобы бот мог работать
