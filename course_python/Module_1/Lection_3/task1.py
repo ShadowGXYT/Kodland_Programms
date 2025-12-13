@@ -17,7 +17,7 @@ def send_hello(message):
 def send_bye(message):
     bot.reply_to(message, "Пока! Удачи!")
     
-@bot.message_handler(commands=['pw'])
+@bot.message_handler(commands=['pw', pass_length])
 def gen_pass(pass_length):
     elements = "+-/*!&$#?=@<>123456789"
     password = ""
