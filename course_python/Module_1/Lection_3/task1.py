@@ -17,7 +17,7 @@ def send_hello(message):
 def send_bye(message):
     bot.reply_to(message, "Пока! Удачи!")
     
-@bot.message_handler(commands=['pw', 'pass_length'])
+@bot.message_handler(commands=['pw'])
 def send_password(massage):
     numbers = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]
     def gen_pass(pass_length):
