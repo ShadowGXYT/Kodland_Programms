@@ -19,14 +19,14 @@ def send_bye(message):
     
 @bot.message_handler(commands=['pw', 'pass_length'])
 def send_password(massage):
-    pass_length = int(input())
+    numbers = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]
     def gen_pass(pass_length):
         elements = "+-/*!&$#?=@<>123456789"
         password = ""
         for i in range(pass_length):
             password += random.choice(elements)
         return password
-    password = gen_pass(int(input(pass_length)))
+    password = gen_pass(random.choice(numbers))
     bot.reply_to(message, password)
 
 
