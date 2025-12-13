@@ -18,12 +18,15 @@ def send_bye(message):
     bot.reply_to(message, "Пока! Удачи!")
     
 @bot.message_handler(commands=['pw', pass_length])
-def gen_pass(pass_length):
-    elements = "+-/*!&$#?=@<>123456789"
-    password = ""
-    for i in range(pass_length):
-        password += random.choice(elements)
-    return password
+def send_password(massage):
+    def gen_pass(pass_length):
+        elements = "+-/*!&$#?=@<>123456789"
+        password = ""
+        for i in range(pass_length):
+            password += random.choice(elements)
+        return password
+    password = gen_pass(int(input(pass_length)))
+    bot.reply_to(message, password)
 
     
 @bot.message_handler(func=lambda message: True)
