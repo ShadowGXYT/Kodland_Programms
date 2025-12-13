@@ -29,6 +29,18 @@ def send_password(message):
     password = gen_pass(random.choice(numbers))
     bot.reply_to(message, password)
 
+@bot.message_handler(commands=['emoji'])
+def gen_emodji():
+    emodji = ["\U0001f600", "\U0001f642", "\U0001F606", "\U0001F923"]
+    return random.choice(emodji)
+
+@bot.message_handler(commands=['flip_coin'])
+def flip_coin():
+    flip = random.randint(0, 2)
+    if flip == 0:
+        return "ОРЕЛ"
+    else:
+        return "РЕШКА"
 
 @bot.message_handler(func=lambda message: True)
 def echo_all(message):
