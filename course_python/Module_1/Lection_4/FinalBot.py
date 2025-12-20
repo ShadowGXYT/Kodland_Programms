@@ -97,7 +97,7 @@ def handle_successful_payment(message):
     bot.reply_to(message, f"Payment for {product} successful!")
 
 # --- User Form (/who_am_I) ---
-@bot.message_handler(commands=['who__am_I'])
+@bot.message_handler(commands=['who_am_I'])
 def send_form(message):
     msg = bot.reply_to(message, "Hi there, I am Example bot. What's your name?")
     bot.register_next_step_handler(msg, process_name_step)
@@ -152,8 +152,8 @@ def help_command(message):
                  "/emoji – random emoji\n"
                  "/flip_coin – coin flip\n"
                  "/heh [number] – repeat 'he'\n"
-                 "/start2 – stars shop\n"
-                 "/start3 – user form\n"
+                 "/buy_stars – stars shop\n"
+                 "/who_am_I – user form\n"
                  "/help – show this message")
 
 # --- Echo Handler ---
