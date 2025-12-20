@@ -1,6 +1,7 @@
 import telebot
 import random
 from telebot import types 
+import os
 
     # Замени 'TOKEN' на токен твоего бота
     # Этот токен ты получаешь от BotFather, чтобы бот мог работать
