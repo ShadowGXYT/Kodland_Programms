@@ -63,7 +63,7 @@ PRICES = {
 }
 
 # Handler for /start command - Then the bot will send amount stars to purchase
-@bot.message_handler(commands=['start'])
+@bot.message_handler(commands=['start2'])
 def send_welcome(message):
     # Create a custom keyboard with 2 buttons per row
     markup = types.ReplyKeyboardMarkup(row_width=2)
