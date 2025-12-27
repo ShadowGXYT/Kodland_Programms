@@ -5,6 +5,7 @@ from telebot import types
 # Bot-Token hier einfügen
 TOKEN = "8160895447:AAF8mFVOieZrH_gqrMPxVMSDse8O_7maLdM"
 bot = telebot.TeleBot(TOKEN)
+memes = ('course_python\Module_2\Lection_1\images\mem1.png', 'course_python\Module_2\Lection_1\images\mem2.png', 'course_python\Module_2\Lection_1\images\mem3.png')
 
 # --- Grundbefehle ---
 @bot.message_handler(commands=['start'])
@@ -21,7 +22,7 @@ def send_bye(message):
 
 @bot.message_handler(commands=['mem'])
 def send_mem(message):
-    with open('images/mem1.png', 'rb') as f:  
+    with open(random.coice(memes), 'rb') as f:  
         bot.send_photo(message.chat.id, f)
 
 # --- Start Bot ---
