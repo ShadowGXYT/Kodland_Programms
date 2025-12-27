@@ -21,7 +21,7 @@ def send_bye(message):
 
 @bot.message_handler(commands=['mem'])
 def send_mem(message):
-    with open('mem1.png', 'rb') as f:  
+    with open('images/mem1.png', 'rb') as f:  
         bot.send_photo(message.chat.id, f)
 
 # --- Start Bot ---
