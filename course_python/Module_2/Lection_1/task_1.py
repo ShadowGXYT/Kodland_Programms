@@ -23,3 +23,6 @@ def send_bye(message):
 def send_mem(message):
     with open('mem1.png', 'rb') as f:  
         bot.send_photo(message.chat.id, f)
+
+# --- Start Bot ---
+bot.polling()
