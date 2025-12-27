@@ -2,18 +2,9 @@ import telebot
 import random
 from telebot import types
 
-# Dein Bot-Token hier einfügen
+# Bot-Token hier einfügen
 TOKEN = "8160895447:AAF8mFVOieZrH_gqrMPxVMSDse8O_7maLdM"
 bot = telebot.TeleBot(TOKEN)
-
-user_dict = {}
-
-# Klasse für Benutzer
-class User:
-    def __init__(self, name):
-        self.name = name
-        self.age = None
-        self.sex = None
 
 # --- Grundbefehle ---
 @bot.message_handler(commands=['start'])
@@ -30,5 +21,5 @@ def send_bye(message):
 
 @bot.message_handler(commands=['mem'])
 def send_mem(message):
-    with open('images/mem1.jpg', 'rb') as f:  
+    with open('mem1.png', 'rb') as f:  
         bot.send_photo(message.chat.id, f)
