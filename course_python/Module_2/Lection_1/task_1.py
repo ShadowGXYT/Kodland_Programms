@@ -1,5 +1,6 @@
 import telebot
 import random
+from random import choice
 from telebot import types
 
 # Bot-Token hier einfügen
@@ -22,7 +23,7 @@ def send_bye(message):
 
 @bot.message_handler(commands=['mem'])
 def send_mem(message):
-    with open(random.coice(memes), 'rb') as f:  
+    with open(random.choice(memes), 'rb') as f:  
         bot.send_photo(message.chat.id, f)
 
 # --- Start Bot ---
