@@ -51,6 +51,6 @@ def clear(message):
             bot.delete_message(chat_id, message.message_id - i)
         except:
             pass  # Fehler ignorieren (z.B. wenn die Nachricht schon gelöscht oder nicht erlaubt)
-    bot.send_message(chat_id, "🧹 Chat cleared (Bot messages only in private chats).")
+    bot.send_message(chat_id, "🧹 Chat cleared.")
 
 bot.polling()
