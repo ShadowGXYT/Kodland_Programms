@@ -1,0 +1,3 @@
+umweltbot = TOKEN = "8167751851:AAEK5N99dVhKqBlKuJAm_sdXMdx8Tw5vk88"
+
+normaler bot = TOKEN = "8160895447:AAF8mFVOieZrH_gqrMPxVMSDse8O_7maLdM"
