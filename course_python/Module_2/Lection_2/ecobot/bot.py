@@ -1,7 +1,7 @@
 import telebot
 from config import TOKEN
 from tips import get_tip
-from challanges import get_challenge
+from challenges import get_challenge
 
 bot = telebot.TeleBot(TOKEN)
 
