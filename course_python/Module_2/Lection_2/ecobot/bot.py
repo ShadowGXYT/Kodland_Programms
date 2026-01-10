@@ -1,5 +1,5 @@
 import telebot
-from config import TOKEN
+from .env import TOKEN
 from tips import get_tip
 from challenges import get_challenge
 
