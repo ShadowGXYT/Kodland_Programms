@@ -4,7 +4,8 @@ import random
 import telebot
 import random
 
-TOKEN = 8167751851:AAEK5N99dVhKqBlKuJAm_sdXMdx8Tw5vk88" bot = telebot.TeleBot(TOKEN)
+TOKEN = "8167751851:AAEK5N99dVhKqBlKuJAm_sdXMdx8Tw5vk88" 
+bot = telebot.TeleBot(TOKEN)
 
 eco_tips = [
     "Bring a reusable bag when shopping instead of using plastic bags.",
