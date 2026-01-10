@@ -1,7 +1,12 @@
 import telebot
-from .env import TOKEN
+from dotenv import load_dotenv
+import os
 from tips import get_tip
 from challenges import get_challenge
+
+load_dotenv()
+
+TOKEN = os.getenv("TOKEN")
 
 bot = telebot.TeleBot(TOKEN)
 
