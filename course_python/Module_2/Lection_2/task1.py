@@ -1,3 +1,7 @@
+"""Telegramm bot link:
+https://t.me/UmWeLt_xyxyxx_BOT
+"""
+
 import telebot
 import random
 
