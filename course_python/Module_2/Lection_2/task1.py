@@ -1,10 +1,7 @@
 import telebot
 import random
 
-import telebot
-import random
-
-TOKEN = "8167751851:AAEK5N99dVhKqBlKuJAm_sdXMdx8Tw5vk88" 
+TOKEN = "8167751851:AAEK5N99dVhKqBlKuJAm_sdXMdx8Tw5vk88"
 bot = telebot.TeleBot(TOKEN)
 
 eco_tips = [
