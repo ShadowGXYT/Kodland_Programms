@@ -2,106 +2,106 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Alexanders Projektwochen-Website</title>
-  styles.css
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Alexanders Projektwochen-Website</title>
+    styles.css
 </head>
 <body>
-  <!-- Cookie Banner -->
-  <div id="cookie-banner">
-    <span>Wir verwenden Cookies, um die Benutzererfahrung zu verbessern.</span>
-    <button id="accept-cookies">Akzeptieren</button>
-    <button id="decline-cookies">Ablehnen</button>
-  </div>
-
-  <header class="item1">
-    <h1>Meine Seite der Projektwoche</h1>
-  </header>
-
-  <nav id="nav" class="item2">
-    <div id="mySidenav" class="sidenav">
-      #Homepage</a>
-      #PC</a>
-      #Windows</a>
-      <ainux</a>
-      #Apple</a>
-      #Mini-Games</a>
+    <!-- Cookie Banner -->
+    <div id="cookie-banner">
+        <span>Wir verwenden Cookies, um die Benutzererfahrung zu verbessern.</span>
+        <button id="accept-cookies">Akzeptieren</button>
+        <button id="decline-cookies">Ablehnen</button>
     </div>
-  </nav>
 
-  <main id="hauptbereich" class="item3">
-    <section id="Homepage-content"><p>Willkommen!</p></section>
-    <section id="PC-content" style="display:none;"><p>Inhalt PC...</p></section>
-    <section id="Windows-content" style="display:none;"><p>Inhalt Windows...</p></section>
-    <section id="Linux-content" style="display:none;"><p>Inhalt Linux...</p></section>
-    <section id="Apple-content" style="display:none;"><p>Inhalt Apple...</p></section>
+    <header class="item1">
+        <h1>Meine Seite der Projektwoche</h1>
+    </header>
 
-    <!-- Mini-Games -->
-    <section id="Minigames-content" style="display:none;">
-      <h2>Mini-Games</h2>
-      <div style="text-align:center">
-        <button class="game-button" onclick="showGame('Zahlenraten')">Zahlenraten</button>
-        <button class="game-button" onclick="showGame('SchereSteinPapier')">Schere, Stein, Papier</button>
-        <button class="game-button" onclick="showGame('Hangman')">Hangman</button>
-        <button class="game-button" onclick="showGame('Sudoku')">Sudoku</button>
-        <button class="game-button" onclick="showGame('Kreuzwortraetsel')">Kreuzworträtsel</button>
-      </div>
+    <nav id="nav" class="item2">
+        <div id="mySidenav" class="sidenav">
+        #Homepage</a>
+        #PC</a>
+        #Windows</a>
+        <ainux</a>
+        #Apple</a>
+        #Mini-Games</a>
+        </div>
+    </nav>
 
-      <div id="game-container">
-        <!-- Zahlenraten -->
-        <div id="Zahlenraten-game-content" class="game-area" style="display:none;">
-          <h3>Zahlenraten</h3>
-          <input type="number" id="number-input" min="1" max="100">
-          <button id="number-guess-button">Raten</button>
-          <p id="guess-message"></p>
-          <button id="number-restart-button" style="display:none;">Neues Spiel</button>
+    <main id="hauptbereich" class="item3">
+        <section id="Homepage-content"><p>Willkommen!</p></section>
+        <section id="PC-content" style="display:none;"><p>Inhalt PC...</p></section>
+        <section id="Windows-content" style="display:none;"><p>Inhalt Windows...</p></section>
+        <section id="Linux-content" style="display:none;"><p>Inhalt Linux...</p></section>
+        <section id="Apple-content" style="display:none;"><p>Inhalt Apple...</p></section>
+
+        <!-- Mini-Games -->
+        <section id="Minigames-content" style="display:none;">
+        <h2>Mini-Games</h2>
+        <div style="text-align:center">
+            <button class="game-button" onclick="showGame('Zahlenraten')">Zahlenraten</button>
+            <button class="game-button" onclick="showGame('SchereSteinPapier')">Schere, Stein, Papier</button>
+            <button class="game-button" onclick="showGame('Hangman')">Hangman</button>
+            <button class="game-button" onclick="showGame('Sudoku')">Sudoku</button>
+            <button class="game-button" onclick="showGame('Kreuzwortraetsel')">Kreuzworträtsel</button>
         </div>
 
-        <!-- Schere Stein Papier -->
-        <div id="SchereSteinPapier-game-content" class="game-area" style="display:none;">
-          <h3>Schere, Stein, Papier</h3>
-          <button class="rps-choice" data-choice="Schere">Schere</button>
-          <button class="rps-choice" data-choice="Stein">Stein</button>
-          <button class="rps-choice" data-choice="Papier">Papier</button>
-          <p id="rps-result"></p>
-          <button id="rps-restart-button" style="display:none;">Neues Spiel</button>
-        </div>
+        <div id="game-container">
+            <!-- Zahlenraten -->
+            <div id="Zahlenraten-game-content" class="game-area" style="display:none;">
+            <h3>Zahlenraten</h3>
+            <input type="number" id="number-input" min="1" max="100">
+            <button id="number-guess-button">Raten</button>
+            <p id="guess-message"></p>
+            <button id="number-restart-button" style="display:none;">Neues Spiel</button>
+            </div>
 
-        <!-- Hangman -->
-        <div id="Hangman-game-content" class="game-area" style="display:none;">
-          <h3>Hangman</h3>
-          <p>Falsche Versuche: <span id="guesses">0/6</span></p>
-          <div id="word-display"></div>
-          <div id="keyboard"></div>
-          <p id="message"></p>
-          <button id="restart-button" style="display:none;">Neues Spiel</button>
-        </div>
+            <!-- Schere Stein Papier -->
+            <div id="SchereSteinPapier-game-content" class="game-area" style="display:none;">
+            <h3>Schere, Stein, Papier</h3>
+            <button class="rps-choice" data-choice="Schere">Schere</button>
+            <button class="rps-choice" data-choice="Stein">Stein</button>
+            <button class="rps-choice" data-choice="Papier">Papier</button>
+            <p id="rps-result"></p>
+            <button id="rps-restart-button" style="display:none;">Neues Spiel</button>
+            </div>
 
-        <!-- Sudoku -->
-        <div id="Sudoku-game-content" class="game-area" style="display:none;">
-          <h3>Sudoku</h3>
-          <div id="sudoku-grid"></div>
-          <p id="sudoku-message"></p>
-          <button id="sudoku-restart-button" style="display:none;">Neues Spiel</button>
-        </div>
+            <!-- Hangman -->
+            <div id="Hangman-game-content" class="game-area" style="display:none;">
+            <h3>Hangman</h3>
+            <p>Falsche Versuche: <span id="guesses">0/6</span></p>
+            <div id="word-display"></div>
+            <div id="keyboard"></div>
+            <p id="message"></p>
+            <button id="restart-button" style="display:none;">Neues Spiel</button>
+            </div>
 
-        <!-- Kreuzworträtsel -->
-        <div id="Kreuzwortraetsel-game-content" class="game-area" style="display:none;">
-          <h3>Kreuzworträtsel</h3>
-          <div id="crossword-grid"></div>
-          <div id="crossword-clues"></div>
-          <p id="crossword-message"></p>
-          <button id="crossword-restart-button" style="display:none;">Neues Rätsel</button>
-        </div>
-      </div>
-    </section>
-  </main>
+            <!-- Sudoku -->
+            <div id="Sudoku-game-content" class="game-area" style="display:none;">
+            <h3>Sudoku</h3>
+            <div id="sudoku-grid"></div>
+            <p id="sudoku-message"></p>
+            <button id="sudoku-restart-button" style="display:none;">Neues Spiel</button>
+            </div>
 
-  <footer class="item5">
+            <!-- Kreuzworträtsel -->
+            <div id="Kreuzwortraetsel-game-content" class="game-area" style="display:none;">
+            <h3>Kreuzworträtsel</h3>
+            <div id="crossword-grid"></div>
+            <div id="crossword-clues"></div>
+            <p id="crossword-message"></p>
+            <button id="crossword-restart-button" style="display:none;">Neues Rätsel</button>
+            </div>
+        </div>
+        </section>
+        </main>
+
+<footer class="item5">
     <p>&copy; 2025 Alexander</p>
-  </footer>
+</footer>
 
-  script.js</script>
+script.js</script>
 </body>
 </html>

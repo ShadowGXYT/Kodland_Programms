@@ -153,4 +153,4 @@ if (declineBtn) declineBtn.addEventListener('click', ()=> cookieBanner.style.dis
 // Startseite beim Laden
 zeigeInhalt('Homepage');
 
-function showGame(gameName)
+function showGame(gameName:any)
