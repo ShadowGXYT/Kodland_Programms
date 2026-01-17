@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Alexanders Projektwoche</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+<div id="cookie-banner">
+    <span>Wir verwenden Cookies.</span>
+    <button onclick="hideCookie()">OK</button>
+</div>
+
+<header class="item1">
+    <h1>Projektwoche – Mini-Games</h1>
+</header>
+
+<nav class="item2">
+    <div class="sidenav">
+        <a href="#" onclick="zeigeInhalt('Homepage')">Homepage</a>
+        <a href="#" onclick="zeigeInhalt('PC')">PC</a>
+        <a href="#" onclick="zeigeInhalt('Minigames')">Mini-Games</a>
+    </div>
+</nav>
+
+<main class="item3">
+    <section id="Homepage-content">
+        <p>Willkommen auf meiner Projektwochen-Website!</p>
+    </section>
+
+    <section id="PC-content" style="display:none;">
+        <p>Informationen über PCs.</p>
+    </section>
+
+    <section id="Minigames-content" style="display:none;">
+        <h2>Mini-Games</h2>
+
+        <button class="game-button" onclick="showGame('Sudoku')">Sudoku</button>
+        <button class="game-button" onclick="showGame('Kreuzwortraetsel')">Kreuzworträtsel</button>
+
+        <!-- Sudoku -->
+        <div id="Sudoku-game-content" class="game-area" style="display:none;">
+            <h3>Sudoku</h3>
+            <div id="sudoku-grid"></div>
+            <p id="sudoku-message"></p>
+            <button onclick="initSudoku()">Neues Spiel</button>
+        </div>
+
+        <!-- Kreuzwort -->
+        <div id="Kreuzwortraetsel-game-content" class="game-area" style="display:none;">
+            <h3>Kreuzworträtsel</h3>
+            <div id="crossword-grid"></div>
+            <p id="crossword-message"></p>
+            <button onclick="initCrossword()">Neues Rätsel</button>
+        </div>
+    </section>
+</main>
+
+<footer class="item5">
+    © 2025 Alexander
+</footer>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
