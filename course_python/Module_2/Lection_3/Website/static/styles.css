@@ -1,101 +1,101 @@
-    /* --- Grundlayout --- */
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      display: grid;
-      grid-template-areas:
-        "item1 item1"
-        "item2 item3"
-        "item5 item5";
-      grid-template-columns: 200px 1fr;
-      grid-template-rows: auto 1fr auto;
-      min-height: 100vh;
-      background-color: lightgoldenrodyellow;
-    }
- 
-    header.item1 { grid-area: item1; background: #444; color: #fff; padding: 15px; text-align: center; }
-    nav.item2 { grid-area: item2; background: #eee; padding: 10px; }
-    main.item3 { grid-area: item3; padding: 20px; background: #fff; }
-    footer.item5 { grid-area: item5; background: #444; color: #fff; text-align: center; padding: 10px; }
- 
-    /* --- Sidebar --- */
-    .sidenav a {
-      display: block;
-      padding: 8px;
-      text-decoration: none;
-      color: #333;
-      border-radius: 5px;
-      margin: 4px 0;
-    }
-    .sidenav a:hover { background: #ddd; }
- 
-    /* --- Cookie Banner --- */
-    #cookie-banner {
-      position: fixed;
-      bottom: 0; left: 0; right: 0;
-      background: #222;
-      color: #fff;
-      padding: 10px;
-      text-align: center;
-      z-index: 1000;
-    }
-    #cookie-banner button { margin-left: 10px; }
- 
-    /* --- Games --- */
-    .game-button {
-      padding: 10px 20px;
-      margin: 5px;
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-    .game-button:hover { background-color: #45a049; }
-    .game-area {
-      border: 1px solid #ddd;
-      padding: 20px;
-      margin: 15px auto;
-      border-radius: 8px;
-      background: #fafafa;
-    }
- 
-    /* Sudoku */
-    #sudoku-grid {
-      display: grid;
-      grid-template-columns: repeat(9, 35px);
-      grid-template-rows: repeat(9, 35px);
-      gap: 1px;
-      border: 2px solid #333;
-      width: fit-content;
-      margin: 20px auto;
-    }
-    .sudoku-cell { width: 35px; height: 35px; border: 1px solid #ccc; }
-    .sudoku-cell input {
-      width: 100%; height: 100%;
-      text-align: center;
-      font-size: 1.2em;
-      border: none;
-    }
- 
-    /* Kreuzworträtsel */
-    #crossword-grid {
-      display: grid;
-      gap: 1px;
-      border: 2px solid #333;
-      width: fit-content;
-      margin: 20px auto;
-    }
-    .crossword-cell {
-      width: 30px; height: 30px;
-      border: 1px solid #ccc;
-      display: flex; align-items: center; justify-content: center;
-      background-color: #fff;
-    }
-    .crossword-cell.empty { background-color: #333; }
-    .crossword-cell input {
-      width: 100%; height: 100%;
-      border: none;
-      text-align: center;
-      font-size: 1em;
-    }
+/* --- Grundlayout --- */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  display: grid;
+  grid-template-areas:
+    "item1 item1"
+    "item2 item3"
+    "item5 item5";
+  grid-template-columns: 200px 1fr;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+  background-color: lightgoldenrodyellow;
+}
+
+header.item1 { grid-area: item1; background: #444; color: #fff; padding: 15px; text-align: center; }
+nav.item2 { grid-area: item2; background: #eee; padding: 10px; }
+main.item3 { grid-area: item3; padding: 20px; background: #fff; }
+footer.item5 { grid-area: item5; background: #444; color: #fff; text-align: center; padding: 10px; }
+
+/* --- Sidebar --- */
+.sidenav a {
+  display: block;
+  padding: 8px;
+  text-decoration: none;
+  color: #333;
+  border-radius: 5px;
+  margin: 4px 0;
+}
+.sidenav a:hover { background: #ddd; }
+
+/* --- Cookie Banner --- */
+#cookie-banner {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  background: #222;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  z-index: 1000;
+}
+#cookie-banner button { margin-left: 10px; }
+
+/* --- Games --- */
+.game-button {
+  padding: 10px 20px;
+  margin: 5px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.game-button:hover { background-color: #45a049; }
+.game-area {
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin: 15px auto;
+  border-radius: 8px;
+  background: #fafafa;
+}
+
+/* Sudoku */
+#sudoku-grid {
+  display: grid;
+  grid-template-columns: repeat(9, 35px);
+  grid-template-rows: repeat(9, 35px);
+  gap: 1px;
+  border: 2px solid #333;
+  width: fit-content;
+  margin: 20px auto;
+}
+.sudoku-cell { width: 35px; height: 35px; border: 1px solid #ccc; }
+.sudoku-cell input {
+  width: 100%; height: 100%;
+  text-align: center;
+  font-size: 1.2em;
+  border: none;
+}
+
+/* Kreuzworträtsel */
+#crossword-grid {
+  display: grid;
+  gap: 1px;
+  border: 2px solid #333;
+  width: fit-content;
+  margin: 20px auto;
+}
+.crossword-cell {
+  width: 30px; height: 30px;
+  border: 1px solid #ccc;
+  display: flex; align-items: center; justify-content: center;
+  background-color: #fff;
+}
+.crossword-cell.empty { background-color: #333; }
+.crossword-cell input {
+  width: 100%; height: 100%;
+  border: none;
+  text-align: center;
+  font-size: 1em;
+}

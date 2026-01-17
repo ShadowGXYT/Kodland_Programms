@@ -2,17 +2,66 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <title>Meine Website</title>
-
-  <!-- DEIN CSS -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alexanders Projektwochen-Website</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
+  <!-- Cookie Banner -->
+  <div id="cookie-banner">
+    <span>Wir verwenden Cookies, um die Benutzererfahrung zu verbessern.</span>
+    <button id="accept-cookies">Akzeptieren</button>
+    <button id="decline-cookies">Ablehnen</button>
+  </div>
 
-  <!-- HIER: DEIN KOMPLETTER HTML-CODE 1:1 -->
-  <!-- nichts ändern -->
+  <header class="item1">
+    <h1>Meine Seite der Projektwoche</h1>
+  </header>
 
-  <!-- DEIN JS -->
+  <nav id="nav" class="item2">
+    <div id="mySidenav" class="sidenav">
+      <a href="#" onclick="zeigeInhalt('Homepage'); return false;">Homepage</a>
+      <a href="#" onclick="zeigeInhalt('PC'); return false;">PC</a>
+      <a href="#" onclick="zeigeInhalt('Windows'); return false;">Windows</a>
+      <a href="#" onclick="zeigeInhalt('Linux'); return false;">Linux</a>
+      <a href="#" onclick="zeigeInhalt('Apple'); return false;">Apple</a>
+      <a href="#" onclick="zeigeInhalt('Minigames'); return false;">Mini-Games</a>
+    </div>
+  </nav>
+
+  <main id="hauptbereich" class="item3">
+    <section id="Homepage-content"><p>Willkommen!</p></section>
+    <section id="PC-content" style="display:none;"><p>Inhalt PC...</p></section>
+    <section id="Windows-content" style="display:none;"><p>Inhalt Windows...</p></section>
+    <section id="Linux-content" style="display:none;"><p>Inhalt Linux...</p></section>
+    <section id="Apple-content" style="display:none;"><p>Inhalt Apple...</p></section>
+
+    <!-- Mini-Games -->
+    <section id="Minigames-content" style="display:none;">
+      <h2>Mini-Games</h2>
+      <div style="text-align:center">
+        <button class="game-button" onclick="showGame('Zahlenraten')">Zahlenraten</button>
+        <button class="game-button" onclick="showGame('SchereSteinPapier')">Schere, Stein, Papier</button>
+        <button class="game-button" onclick="showGame('Hangman')">Hangman</button>
+        <button class="game-button" onclick="showGame('Sudoku')">Sudoku</button>
+        <button class="game-button" onclick="showGame('Kreuzwortraetsel')">Kreuzworträtsel</button>
+      </div>
+
+      <div id="game-container">
+        <!-- Hier kommen die Game-Container, siehe JS -->
+        <div id="Zahlenraten-game-content" class="game-area" style="display:none;"></div>
+        <div id="SchereSteinPapier-game-content" class="game-area" style="display:none;"></div>
+        <div id="Hangman-game-content" class="game-area" style="display:none;"></div>
+        <div id="Sudoku-game-content" class="game-area" style="display:none;"></div>
+        <div id="Kreuzwortraetsel-game-content" class="game-area" style="display:none;"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="item5">
+    <p>&copy; 2025 Alexander</p>
+  </footer>
+
   <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
