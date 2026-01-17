@@ -2,7 +2,7 @@
 function zeigeInhalt(contentId){
   document.querySelectorAll('main section').forEach(s=>s.style.display="none");
   document.getElementById(contentId+"-content").style.display="block";
- ="none");  if(contentId==="Minigames") showGame('Zahlenraten');
+  if(contentId==="Minigames") showGame('Zahlenraten');
   document.getElementById(gameName+"-game-content").style.display="block";
   if(gameName==="Sudoku") initializeSudokuGame();
   if(gameName==="Kreuzwortraetsel") initializeCrosswordGame();
@@ -152,6 +152,5 @@ if (declineBtn) declineBtn.addEventListener('click', ()=> cookieBanner.style.dis
 
 // Startseite beim Laden
 zeigeInhalt('Homepage');
-}
 
-function showGame(gameName){
+function showGame(gameName)
