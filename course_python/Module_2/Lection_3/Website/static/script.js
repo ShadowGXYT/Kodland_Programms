@@ -1,39 +1,30 @@
-// Navigation
-function zeigeInhalt(id) {
-    document.querySelectorAll('main section').forEach(s => s.style.display = "none");
-    document.getElementById(id + "-content").style.display = "block";
-}
+function zeigeOS(id, buttonElement) {
+    // 1. Alle Info-Boxen verstecken
+    const boxen = document.querySelectorAll('.info-box');
+    boxen.forEach(box => box.classList.add('hidden'));
 
-// Kommunikation mit Python (Flask)
-async function sendeZahl() {
-    const guess = document.getElementById('num-input').value;
-    const response = await fetch('/check_number', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({ guess: guess })
-    });
-    const result = await response.json();
-    document.getElementById('game-feedback').innerText = result.message;
-}
+    // 2. Die gewählte Box anzeigen
+    const zielBox = document.getElementById(id);
+    if (zielBox) {
+        zielBox.classList.remove('hidden');
+    }
 
-// Sudoku-Daten von Python abrufen
-async function ladeSudoku() {
-    const response = await fetch('/get_sudoku');
-    const data = await response.json();
-    const grid = document.getElementById('sudoku-grid');
-    grid.innerHTML = '';
+    // 3. Den Start-Text ("Willkommen") ausblenden
+    const startText = document.getElementById('start');
+    if (startText) startText.classList.add('hidden');
 
-    data.puzzle.forEach((row, rIdx) => {
-        row.forEach((val, cIdx) => {
-            const input = document.createElement('input');
-            input.className = 'cell';
-            input.type = 'number';
-            if (val !== null) {
-                input.value = val;
-                input.readOnly = true;
-                input.style.background = '#ddd';
-            }
-            grid.appendChild(input);
-        });
-    });
+    // 4. Aktiv-Status der Buttons aktualisieren
+    const alleButtons = document.querySelectorAll('.hoverboard button');
+    alleButtons.forEach(btn => btn.classList.remove('active'));
+    
+    // Falls ein Button-Element übergeben wurde, markiere es als aktiv
+    if (buttonElement) {
+        buttonElement.classList.add('active');
+    }
+    // Buttons Aktiv-Zustand
+        const buttons = document.querySelectorAll('.hoverboard button');
+        buttons.forEach(b => b.classList.remove('active'));
+        if (btn) {
+            btn.classList.add('active');
+        }
 }
