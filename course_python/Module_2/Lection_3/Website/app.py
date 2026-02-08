@@ -14,6 +14,12 @@ facts = [
 def index():
     return render_template('index.html')
 
+@app.route('/secret')
+def secret():
+    ergebnis = random.choice(["🪙 Kopf", "🪙 Zahl"])
+    return render_template('secret.html', ergebnis=ergebnis)
+
+
 @app.route('/random_fact')
 def random_fact():
     fact = random.choice(facts)
@@ -21,3 +27,4 @@ def random_fact():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
