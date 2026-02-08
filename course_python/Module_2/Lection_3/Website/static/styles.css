@@ -21,10 +21,9 @@ header {
 .container {
     display: flex;
     flex: 1;
-    overflow: hidden;
 }
 
-/* Hoverboard Style */
+/* Hoverboard */
 .hoverboard {
     width: 250px;
     background-color: #5988FF;
@@ -36,7 +35,6 @@ header {
 }
 
 .hoverboard button {
-    font-family: 'Inter', sans-serif;
     font-weight: bold;
     padding: 15px;
     color: white;
@@ -45,71 +43,51 @@ header {
     border-radius: 12px;
     cursor: pointer;
     text-align: left;
-    transition: all 0.3s;
+    transition: 0.3s;
 }
 
-.hoverboard button:hover, .hoverboard button.active {
+.hoverboard button:hover,
+.hoverboard button.active {
     background-color: #D6FF6B;
     color: #5988FF;
-    border-color: #FD98FB;
     transform: translateX(10px);
 }
 
-/* Inhaltsbereich */
+/* Inhalt */
 #display {
     flex: 1;
     padding: 40px;
-    background-color: white;
-    overflow-y: auto;
 }
 
 .info-box {
-    animation: fadeIn 0.5s ease;
     max-width: 800px;
+    animation: fadeIn 0.4s ease;
 }
 
-.info-box h2 {
+.hidden {
+    display: none;
+}
+
+/* Link-Button */
+.fact-link {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 14px 20px;
+    font-weight: bold;
     color: #5988FF;
-    font-size: 32px;
-    text-decoration: underline;
-    text-decoration-color: #FD98FB;
+    text-decoration: none;
+    border: 3px solid #5988FF;
+    border-radius: 12px;
+    transition: 0.3s;
 }
 
-.info-box p {
-    font-size: 18px;
-    line-height: 1.6;
-    color: #333;
+.fact-link:hover {
+    background-color: #D6FF6B;
+    border-color: #FD98FB;
 }
 
-/* Tabellen */
-table {
-    width: 100%;
-    margin-top: 20px;
-    border-collapse: collapse;
-}
-
-th { background: #5988FF; color: white; padding: 10px; border: 2px solid #FD98FB; }
-td { padding: 10px; border-bottom: 2px solid #D6FF6B; }
-
-/* Widgets */
-.widget-container {
-    margin-top: 20px;
-    padding: 20px;
-    background-color: white;
-    border: 4px solid #5988FF;
-    border-radius: 20px;
-    box-shadow: 10px 10px 0px #D6FF6B;
-    width: 100%; /* Nutzt die volle Breite des Inhaltsbereichs */
-}
-
-.hidden { display: none; }
-
-@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-
-h2 {
-    color: #FD98FB; /* Hier kannst du z.B. das Kodland-Rosa nehmen */
-    font-size: 28px;
-    font-family: 'Inter', sans-serif;
-    text-decoration: underline;
-    text-decoration-color: #D6FF6B; /* Unterstreichung in Salatgrün */
+/* Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
