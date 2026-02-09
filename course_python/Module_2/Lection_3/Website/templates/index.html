@@ -8,75 +8,87 @@
 </head>
 <body>
 
-    <header>
-        <h1>Betriebssysteme & Technologie</h1>
-    </header>
+<header>
+    <h1>Betriebssysteme & Technologie</h1>
+</header>
 
-    <div class="container">
-        <nav class="hoverboard">
-            <button class="active" onmouseover="zeigeOS('start', this)" onclick="zeigeOS('start', this)">🏠 Homepage</button>
-            <button onmouseover="zeigeOS('windows', this)" onclick="zeigeOS('windows', this)">🪟 Windows</button>
-            <button onmouseover="zeigeOS('linux', this)" onclick="zeigeOS('linux', this)">🐧 Linux</button>
-            <button onmouseover="zeigeOS('macos', this)" onclick="zeigeOS('macos', this)">🍎 macOS</button>
-            <button onmouseover="zeigeOS('kalender', this)" onclick="zeigeOS('kalender', this)">📅 Kalender</button>
-        </nav>
+<div class="container">
+    <!-- Hoverboard Navigation -->
+    <nav class="hoverboard">
+        <a href="/" class="fact-link">🏠 Homepage</a>
+        <a href="/" class="fact-link" onclick="zeigeOS('windows', this)">🪟 Windows</a>
+        <a href="/" class="fact-link" onclick="zeigeOS('linux', this)">🐧 Linux</a>
+        <a href="/" class="fact-link" onclick="zeigeOS('macos', this)">🍎 macOS</a>
+        <a href="/" class="fact-link" onclick="zeigeOS('kalender', this)">📅 Kalender</a>
 
-        <main id="display">
-            
-            <div id="start" class="info-box">
-                <h2>Willkommen zu meinem Projekt!</h2>
-                <p>Hier erfährst du spannende Details über Betriebssysteme, kannst das aktuelle Wetter checken oder einen Blick in meinen Zeitplan werfen. Nutze einfach das Hoverboard auf der linken Seite, um zwischen den verschiedenen Themen zu wechseln. Ich habe die Seite mit Python, Flask und modernen Web-Technologien erstellt.</p>
-                <div class="widget-container" style="max-width: 1000px; width: 100%;">
-                    <h3>Aktuelles Wetter in Zürich</h3>
-                    <iframe src="https://www.meteoblue.com/de/wetter/widget/three/zurich_schweiz_2657896?geoloc=fixed&nocurrent=0&noforecast=0&days=7&tempunit=CELSIUS&windunit=KILOMETER_PER_HOUR&layout=light"  
-                            frameborder="0" scrolling="NO" allowtransparency="true" 
-                            sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox" 
-                            style="width: 100%; height: 410px;"> </iframe>
-                </div>
+        <a href="{{ url_for('random_fact') }}" class="fact-link">🎲 Zufälliger Fakt</a>
+        <a href="{{ url_for('secret') }}" class="fact-link">🕵️ Geheime Seite</a>
+        <a href="{{ url_for('energieeffizienz') }}" class="fact-link">⚡ Energieeffizienz-Rechner</a>
+    </nav>
+
+    <!-- Hauptinhalt -->
+    <main id="display">
+
+        <!-- Start / Homepage -->
+        <div id="start" class="info-box">
+            <h2>Willkommen zu meinem Projekt!</h2>
+            <p>Hier erfährst du spannende Details über Betriebssysteme, kannst das aktuelle Wetter checken oder einen Blick in meinen Zeitplan werfen. Nutze einfach das Hoverboard auf der linken Seite, um zwischen den verschiedenen Themen zu wechseln. Ich habe die Seite mit Python, Flask und modernen Web-Technologien erstellt.</p>
+
+            <div class="widget-container" style="max-width: 1000px; width: 100%;">
+                <h3>Aktuelles Wetter in Zürich</h3>
+                <iframe src="https://www.meteoblue.com/de/wetter/widget/three/zurich_schweiz_2657896?geoloc=fixed&nocurrent=0&noforecast=0&days=7&tempunit=CELSIUS&windunit=KILOMETER_PER_HOUR&layout=light"  
+                        frameborder="0" scrolling="NO" allowtransparency="true" 
+                        sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox" 
+                        style="width: 100%; height: 410px;"> </iframe>
             </div>
+        </div>
 
-            <div id="windows" class="info-box hidden">
-                <h2>Microsoft Windows</h2>
-                <p>Microsoft Windows ist das meistgenutzte Desktop-Betriebssystem der Welt und dominiert besonders im Business- und Gaming-Sektor. Es bietet die größte Auswahl an Softwareanwendungen und unterstützt fast jede verfügbare Hardwarekomponente direkt nach dem Einstecken. Mit Windows 11 wurde ein neues Design eingeführt, das auf Produktivität und moderne Ästhetik setzt. Dank DirectX ist es die erste Wahl für Gamer, da fast alle Blockbuster-Spiele primär für diese Plattform optimiert werden. Ein Nachteil bleibt jedoch die Anfälligkeit für Viren im Vergleich zu Unix-basierten Systemen.</p>
-                <table>
-                    <tr><th>Vorteil</th><th>Beschreibung</th></tr>
-                    <tr><td>Kompatibilität</td><td>Läuft auf fast jedem PC und Laptop.</td></tr>
-                    <tr><td>Software</td><td>Unendliche Auswahl an Profi-Programmen.</td></tr>
-                </table>
+        <!-- Windows Box -->
+        <div id="windows" class="info-box hidden">
+            <h2>Microsoft Windows</h2>
+            <p>Microsoft Windows ist das meistgenutzte Desktop-Betriebssystem der Welt und dominiert besonders im Business- und Gaming-Sektor. Es bietet die größte Auswahl an Softwareanwendungen und unterstützt fast jede verfügbare Hardwarekomponente direkt nach dem Einstecken. Mit Windows 11 wurde ein neues Design eingeführt, das auf Produktivität und moderne Ästhetik setzt. Dank DirectX ist es die erste Wahl für Gamer, da fast alle Blockbuster-Spiele primär für diese Plattform optimiert werden. Ein Nachteil bleibt jedoch die Anfälligkeit für Viren im Vergleich zu Unix-basierten Systemen.</p>
+            <table>
+                <tr><th>Vorteil</th><th>Beschreibung</th></tr>
+                <tr><td>Kompatibilität</td><td>Läuft auf fast jedem PC und Laptop.</td></tr>
+                <tr><td>Software</td><td>Unendliche Auswahl an Profi-Programmen.</td></tr>
+            </table>
+        </div>
+
+        <!-- Linux Box -->
+        <div id="linux" class="info-box hidden">
+            <h2>Linux (Open Source)</h2>
+            <p>Linux ist ein quelloffenes Betriebssystem, das auf Freiheit und Sicherheit basiert und weltweit von einer riesigen Community weiterentwickelt wird. Es gibt keine zentrale Firma, stattdessen existieren hunderte verschiedene Versionen, die sogenannten Distributionen wie Ubuntu oder Fedora. Linux ist extrem stabil und bildet das Rückgrat des Internets, da fast alle großen Server und Supercomputer darauf laufen. Nutzer schätzen die volle Kontrolle über ihre Daten und die Tatsache, dass das System auch auf alter Hardware noch blitzschnell arbeitet. Für Einsteiger ist die Lernkurve etwas steiler, aber die Belohnung ist ein extrem anpassbares System.</p>
+            <table>
+                <tr><th>Vorteil</th><th>Beschreibung</th></tr>
+                <tr><td>Sicherheit</td><td>Sehr wenige Viren und volle Privatsphäre.</td></tr>
+                <tr><td>Effizienz</td><td>Verbraucht deutlich weniger Ressourcen als Windows.</td></tr>
+            </table>
+        </div>
+
+        <!-- macOS Box -->
+        <div id="macos" class="info-box hidden">
+            <h2>Apple macOS</h2>
+            <p>macOS ist das Herzstück der Apple Macintosh-Rechner und ist für seine nahtlose Integration in das Apple-Ökosystem weltbekannt. Das System basiert auf einer soliden Unix-Architektur, was es sowohl für Entwickler als auch für kreative Profis extrem zuverlässig macht. Die Benutzeroberfläche gilt als Goldstandard für intuitives Design und bietet Funktionen wie Sidecar oder AirDrop zur Zusammenarbeit mit iPads und iPhones. Da Apple Hardware und Software aus einer Hand liefert, ist die Performance perfekt auf die Geräte abgestimmt. Der größte Nachteil sind die hohen Anschaffungskosten für die Hardware und die geringere Auswahl an Gaming-Titeln.</p>
+            <table>
+                <tr><th>Vorteil</th><th>Beschreibung</th></tr>
+                <tr><td>Workflow</td><td>Perfekte Synchronisation mit dem iPhone.</td></tr>
+                <tr><td>Qualität</td><td>Hochwertige Apps und sehr stabile Oberfläche.</td></tr>
+            </table>
+        </div>
+
+        <!-- Kalender Box -->
+        <div id="kalender" class="info-box hidden">
+            <h2>Projekt-Kalender</h2>
+            <p>Hier behalte ich den Überblick über meine Deadlines und Lerneinheiten. Ein guter Zeitplan ist der Schlüssel zum Erfolg in der Programmierung!</p>
+            <div class="widget-container">
+                <iframe src="https://calendar.google.com/calendar/embed?src=de.german%23holiday%40group.v.calendar.google.com&ctz=Europe%2FBerlin" 
+                        style="border: 0" width="100%" height="350" frameborder="0" scrolling="no"></iframe>
             </div>
+        </div>
 
-            <div id="linux" class="info-box hidden">
-                <h2>Linux (Open Source)</h2>
-                <p>Linux ist ein quelloffenes Betriebssystem, das auf Freiheit und Sicherheit basiert und weltweit von einer riesigen Community weiterentwickelt wird. Es gibt keine zentrale Firma, stattdessen existieren hunderte verschiedene Versionen, die sogenannten Distributionen wie Ubuntu oder Fedora. Linux ist extrem stabil und bildet das Rückgrat des Internets, da fast alle großen Server und Supercomputer darauf laufen. Nutzer schätzen die volle Kontrolle über ihre Daten und die Tatsache, dass das System auch auf alter Hardware noch blitzschnell arbeitet. Für Einsteiger ist die Lernkurve etwas steiler, aber die Belohnung ist ein extrem anpassbares System.</p>
-                <table>
-                    <tr><th>Vorteil</th><th>Beschreibung</th></tr>
-                    <tr><td>Sicherheit</td><td>Sehr wenige Viren und volle Privatsphäre.</td></tr>
-                    <tr><td>Effizienz</td><td>Verbraucht deutlich weniger Ressourcen als Windows.</td></tr>
-                </table>
-            </div>
+    </main>
+</div>
 
-            <div id="macos" class="info-box hidden">
-                <h2>Apple macOS</h2>
-                <p>macOS ist das Herzstück der Apple Macintosh-Rechner und ist für seine nahtlose Integration in das Apple-Ökosystem weltbekannt. Das System basiert auf einer soliden Unix-Architektur, was es sowohl für Entwickler als auch für kreative Profis extrem zuverlässig macht. Die Benutzeroberfläche gilt als Goldstandard für intuitives Design und bietet Funktionen wie Sidecar oder AirDrop zur Zusammenarbeit mit iPads und iPhones. Da Apple Hardware und Software aus einer Hand liefert, ist die Performance perfekt auf die Geräte abgestimmt. Der größte Nachteil sind die hohen Anschaffungskosten für die Hardware und die geringere Auswahl an Gaming-Titeln.</p>
-                <table>
-                    <tr><th>Vorteil</th><th>Beschreibung</th></tr>
-                    <tr><td>Workflow</td><td>Perfekte Synchronisation mit dem iPhone.</td></tr>
-                    <tr><td>Qualität</td><td>Hochwertige Apps und sehr stabile Oberfläche.</td></tr>
-                </table>
-            </div>
-
-            <div id="kalender" class="info-box hidden">
-                <h2>Projekt-Kalender</h2>
-                <p>Hier behalte ich den Überblick über meine Deadlines und Lerneinheiten. Ein guter Zeitplan ist der Schlüssel zum Erfolg in der Programmierung!</p>
-                <div class="widget-container">
-                    <iframe src="https://calendar.google.com/calendar/embed?src=de.german%23holiday%40group.v.calendar.google.com&ctz=Europe%2FBerlin" 
-                            style="border: 0" width="100%" height="350" frameborder="0" scrolling="no"></iframe>
-                </div>
-            </div>
-
-        </main>
-    </div>
-
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>

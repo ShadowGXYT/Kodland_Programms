@@ -34,7 +34,7 @@ header {
     border-right: 6px solid #FD98FB;
 }
 
-.hoverboard button {
+.hoverboard button, .hoverboard a.fact-link {
     font-weight: bold;
     padding: 15px;
     color: white;
@@ -44,10 +44,13 @@ header {
     cursor: pointer;
     text-align: left;
     transition: 0.3s;
+    text-decoration: none;
+    display: inline-block;
 }
 
 .hoverboard button:hover,
-.hoverboard button.active {
+.hoverboard button.active,
+.hoverboard a.fact-link:hover {
     background-color: #D6FF6B;
     color: #5988FF;
     transform: translateX(10px);

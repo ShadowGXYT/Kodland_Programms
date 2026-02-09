@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Geräte-Auswahl</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+<header>
+    <h1>Geräte auswählen</h1>
+</header>
+
+<div class="container">
+    <main class="info-box">
+        <ul>
+            <li class="list__item">
+                <a href="{{ size + '/result/' + lampen + '/1' }}" class="fact-link">
+                    <img src="../static/img/device_small.svg" alt="Kleine Geräte">
+                    <span>Kleine Geräte</span>
+                </a>
+            </li>
+            <li class="list__item">
+                <a href="{{ size + '/result/' + lampen + '/2' }}" class="fact-link">
+                    <img src="../static/img/device_medium.svg" alt="Mittlere Geräte">
+                    <span>Mittlere Geräte</span>
+                </a>
+            </li>
+            <li class="list__item">
+                <a href="{{ size + '/result/' + lampen + '/3' }}" class="fact-link">
+                    <img src="../static/img/device_large.svg" alt="Große Geräte">
+                    <span>Große Geräte</span>
+                </a>
+            </li>
+            <!-- Öko-Geräte -->
+            <li class="list__item">
+                <a href="{{ size + '/result/' + lampen + '/1' }}" class="fact-link">
+                    <img src="../static/img/eco_battery.svg" alt="Eco Geräte">
+                    <span>Ökologische Geräte</span>
+                    <p>Energieeffiziente Geräte, die Strom sparen und die Umwelt schonen.</p>
+                </a>
+            </li>
+        </ul>
+        <a href="/" class="fact-link">⬅ Zurück zur Hauptseite</a>
+    </main>
+</div>
+</body>
+</html>
