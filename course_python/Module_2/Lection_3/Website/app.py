@@ -18,6 +18,10 @@ size_map = {'small': 50, 'medium': 100, 'large': 200}
 def index():
     return render_template('index.html')
 
+@app.route('/energieeffizienz')
+def energieeffizienz():
+    return render_template('electronics.html')  # oder deine Startseite
+
 @app.route('/secret')
 def secret():
     ergebnis = random.choice(["🪙 Kopf", "🪙 Zahl"])
