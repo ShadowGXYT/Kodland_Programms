@@ -253,3 +253,53 @@ ul {
     color: #F8FAFC;
     background:  rgba(14, 165, 233, 1);
 }
+
+/* =========================
+   EDIT & DELETE BUTTONS
+========================= */
+
+.card-actions {
+    display: flex;
+    gap: 20px;
+    margin-top: 30px;
+    justify-content: center;
+}
+
+.btn-edit,
+.btn-delete {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: 700;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+    text-align: center;
+    min-width: 140px;
+}
+
+/* EDIT Button */
+.btn-edit {
+    border: 2px solid rgba(14, 165, 233, 1);
+    color: rgba(14, 165, 233, 1);
+    background: #0F172A;
+}
+
+.btn-edit:hover {
+    background: rgba(14, 165, 233, 1);
+    color: #F8FAFC;
+    transform: scale(1.05);
+}
+
+/* DELETE Button */
+.btn-delete {
+    border: 2px solid #ef4444;
+    color: #ef4444;
+    background: #0F172A;
+}
+
+.btn-delete:hover {
+    background: #ef4444;
+    color: #F8FAFC;
+    transform: scale(1.05);
+}

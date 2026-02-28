@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <title>Редактирование записи</title>
+</head>
+<body>
+
+  <header class="header">
+    <img src="{{ url_for('static', filename='img/logo.svg') }}" alt="logo" width="30" height="30">
+  </header>
+
+  <main class="creat-form">
+
+    <h1 class="main__title">Редактирование записи</h1>
+
+    <form method="POST" class="form__card">
+
+      <div class="form__inputs">
+
+        <label>
+          Заголовок
+          <input type="text"
+                 name="title"
+                 value="{{ card.title }}"
+                 class="form__input"
+                 required>
+        </label>
+
+        <label>
+          Подзаголовок
+          <input type="text"
+                 name="subtitle"
+                 value="{{ card.subtitle }}"
+                 class="form__input"
+                 required>
+        </label>
+
+        <label>
+          Текст
+          <textarea name="text"
+                    rows="8"
+                    class="form__text"
+                    required>{{ card.text }}</textarea>
+        </label>
+
+      </div>
+
+      <button type="submit" class="form__button">
+        💾 Сохранить изменения
+      </button>
+
+    </form>
+
+  </main>
+
+</body>
+</html>
