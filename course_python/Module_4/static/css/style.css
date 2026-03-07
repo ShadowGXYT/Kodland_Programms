@@ -1,20 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
 body::-webkit-scrollbar {
     width: 12px;
-  }
-  
-  body::-webkit-scrollbar-track {
-    background: #0F172A;        /* цвет зоны отслеживания */
-  }
-  
-  body::-webkit-scrollbar-thumb {
-    background-color: rgba(30, 41, 59, 0.4);    /* цвет бегунка */
-    border-radius: 20px;       /* округлось бегунка */
+}
+
+body::-webkit-scrollbar-track {
+    background: #0F172A;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: rgba(30, 41, 59, 0.4);
+    border-radius: 20px;
     border: none;
-  }
-
-
-
+}
 
 body {
     margin: 0;
@@ -30,7 +28,6 @@ h1, h2, p {
     margin: 0;
 }
 
-
 img {
     object-fit: contain;
 }
@@ -38,6 +35,7 @@ img {
 a {
     text-decoration: none;
     color: inherit;
+    transition: 0.2s;
 }
 
 ul {
@@ -59,7 +57,6 @@ ul {
     align-items: center;
     gap: 20px;
 }
-
 
 .main__title {
     font-size: 40px;
@@ -84,7 +81,7 @@ ul {
     background: rgba(30, 41, 59, 0.4);
     border-radius: 20px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-
+    cursor: pointer;
 }
 
 .card__link {
@@ -109,10 +106,10 @@ ul {
     padding: 0 20px;
     text-align: center;
 }
+
 .card__subtitle {
     padding: 0 20px;
     text-align: center;
-
 }
 
 .card__img {
@@ -206,7 +203,7 @@ ul {
 
 .form__button:hover {
     color: #F8FAFC;
-    background:  rgba(14, 165, 233, 1);
+    background: rgba(14, 165, 233, 1);
 }
 
 .main {
@@ -251,7 +248,7 @@ ul {
 
 .main__link:hover {
     color: #F8FAFC;
-    background:  rgba(14, 165, 233, 1);
+    background: rgba(14, 165, 233, 1);
 }
 
 /* =========================
@@ -278,7 +275,6 @@ ul {
     min-width: 140px;
 }
 
-/* EDIT Button */
 .btn-edit {
     border: 2px solid rgba(14, 165, 233, 1);
     color: rgba(14, 165, 233, 1);
@@ -291,7 +287,6 @@ ul {
     transform: scale(1.05);
 }
 
-/* DELETE Button */
 .btn-delete {
     border: 2px solid #ef4444;
     color: #ef4444;
@@ -302,4 +297,45 @@ ul {
     background: #ef4444;
     color: #F8FAFC;
     transform: scale(1.05);
+}
+
+/* =========================
+   LOGIN / REGISTRATION
+========================= */
+
+.main-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login {
+    width: 30%;
+    padding: 50px 30px;
+    display: flex;
+    gap: 30px;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(30, 41, 59, 0.4);
+    border-radius: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.login label {
+    width: 60%;
+}
+
+.reg__link {
+    height: fit-content;
+    text-align: center;
+    padding: 15px 0px;
+}
+
+.error {
+    font-size: 10px;
+    color: #fff;
+}
+
+.login__link:hover {
+    color: rgba(14, 165, 233, 1);
 }

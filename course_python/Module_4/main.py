@@ -1,8 +1,11 @@
 # Импорт
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, session
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
+
+# Secret Key für Session
+app.secret_key = 'my_top_secret_123'
 
 # SQLite
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///diary.db'
@@ -12,38 +15,91 @@ db = SQLAlchemy(app)
 
 
 # ==============================
-# Модель
+# USER MODELL
+# ==============================
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    email = db.Column(db.String(100), nullable=False)
+    password = db.Column(db.String(100), nullable=False)
+
+    def __repr__(self):
+        return f'<User {self.id}>'
+
+
+# ==============================
+# CARD MODELL
 # ==============================
 class Card(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100), nullable=False)
-    subtitle = db.Column(db.String(100), nullable=False)
+    subtitle = db.Column(db.String(300), nullable=False)
     text = db.Column(db.Text, nullable=False)
+
+    # Besitzer
+    user_email = db.Column(db.String(100), nullable=False)
 
     def __repr__(self):
         return f'<Card {self.id}>'
 
 
 # ==============================
-# Главная страница + поиск
+# LOGIN
 # ==============================
-@app.route('/')
-def index():
-    search_query = request.args.get('search')
+@app.route('/', methods=['GET','POST'])
+def login():
+    error = ""
 
-    if search_query:
-        cards = Card.query.filter(
-            Card.title.contains(search_query) |
-            Card.subtitle.contains(search_query)
-        ).all()
-    else:
-        cards = Card.query.order_by(Card.id).all()
+    if request.method == "POST":
+        email = request.form['email']
+        password = request.form['password']
+
+        user = User.query.filter_by(email=email, password=password).first()
+
+        if user:
+            session['user_email'] = email
+            return redirect('/index')
+        else:
+            error = "Login falsch"
+
+    return render_template('login.html', error=error)
+
+
+# ==============================
+# REGISTRATION
+# ==============================
+@app.route('/reg', methods=['GET','POST'])
+def reg():
+
+    if request.method == "POST":
+        email = request.form['email']
+        password = request.form['password']
+
+        new_user = User(email=email, password=password)
+
+        db.session.add(new_user)
+        db.session.commit()
+
+        return redirect('/')
+
+    return render_template('registration.html')
+
+
+# ==============================
+# INDEX (NUR EIGENE CARDS)
+# ==============================
+@app.route('/index')
+def index():
+
+    if 'user_email' not in session:
+        return redirect('/')
+
+    cards = Card.query.filter_by(user_email=session['user_email']).order_by(Card.id).all()
 
     return render_template('index.html', cards=cards)
 
 
 # ==============================
-# Детальная страница
+# DETAIL SEITE
 # ==============================
 @app.route('/card/<int:id>')
 def card_detail(id):
@@ -52,28 +108,42 @@ def card_detail(id):
 
 
 # ==============================
-# Создание карточки
+# CREATE PAGE
 # ==============================
 @app.route('/create')
 def create():
+
+    if 'user_email' not in session:
+        return redirect('/')
+
     return render_template('create_card.html')
 
 
+# ==============================
+# CREATE FORM
+# ==============================
 @app.route('/form_create', methods=['POST'])
 def form_create():
+
     title = request.form['title']
     subtitle = request.form['subtitle']
     text = request.form['text']
 
-    new_card = Card(title=title, subtitle=subtitle, text=text)
+    new_card = Card(
+        title=title,
+        subtitle=subtitle,
+        text=text,
+        user_email=session['user_email']
+    )
+
     db.session.add(new_card)
     db.session.commit()
 
-    return redirect('/')
+    return redirect('/index')
 
 
 # ==============================
-# ✏ EDIT
+# EDIT
 # ==============================
 @app.route('/edit/<int:id>', methods=['GET', 'POST'])
 def edit_card(id):
@@ -91,20 +161,32 @@ def edit_card(id):
 
 
 # ==============================
-# 🗑 DELETE
+# DELETE
 # ==============================
 @app.route('/delete/<int:id>')
 def delete_card(id):
     card = Card.query.get_or_404(id)
+
     db.session.delete(card)
     db.session.commit()
+
+    return redirect('/index')
+
+
+# ==============================
+# LOGOUT
+# ==============================
+@app.route('/logout')
+def logout():
+    session.pop('user_email', None)
     return redirect('/')
 
 
 # ==============================
-# Запуск
+# START
 # ==============================
 if __name__ == "__main__":
     with app.app_context():
         db.create_all()
+
     app.run(debug=True)
