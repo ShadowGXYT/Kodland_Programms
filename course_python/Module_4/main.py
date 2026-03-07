@@ -83,6 +83,25 @@ def reg():
 
     return render_template('registration.html')
 
+# ==============================
+# DELETE ACCOUNT
+# ==============================
+@app.route('/delete_account')
+def delete_account():
+
+    email = session.get('user_email')
+
+    user = User.query.filter_by(email=email).first()
+
+    if user:
+        Card.query.filter_by(user_email=email).delete()
+        db.session.delete(user)
+        db.session.commit()
+
+    session.clear()
+
+    return redirect('/')
+
 
 # ==============================
 # INDEX (NUR EIGENE CARDS)
