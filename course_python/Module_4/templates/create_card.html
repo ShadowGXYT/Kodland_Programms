@@ -1,42 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Дневник программиста</title>
-    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-    <header class="header">
-        <img src="../static/img/logo.svg" alt="logo" width="30" height="30">
-        <ul class="main-list">
-            <li class="list__item">
-              <a href="">
-                <img src="../static/img/login.svg" alt="login" width="20" height="20">
-              </a>
-        </ul>
-      </header>
-      <main>
-        {% block content %}
-        <form action="{{ url_for('form_create') }}" method="post" class="creat-form">
-            <div class="form__card">
-                <img class="card__img" src="../static/img/post_icon.png" width="250" height="250" alt="post_icon">
-                <div class="form__inputs">
-                    <label for="title">
-                        <input class="form__input" type="text" name="title" id="title" placeholder="Введите заголовок" required>
-                    </label>
-                    <label for="subtitle">
-                        <input class="form__input" type="text" name="subtitle" id="subtitle" placeholder="Введите подзаголовок" required>
-                    </label>
-                </div>
-                <label for="text">
-                    <textarea class="form__text" name="text" id="text" cols="30" rows="10" required placeholder="Напишите что-нибудь..."></textarea>
-                </label>
-                <button class="form__button">Создать</button>
+
+<!-- ================= HEADER ================= -->
+<header class="header">
+    <div class="header-left">
+        <img src="{{ url_for('static', filename='img/logo.svg') }}" alt="logo" class="logo-main">
+    </div>
+    <div class="header-right">
+        <div class="logo-menu" id="login-menu">
+            <img src="{{ url_for('static', filename='img/login.svg') }}" 
+                 alt="login" 
+                 class="logo" id="login-icon">
+
+            <div class="logo-dropdown" id="login-dropdown">
+                <a href="{{ url_for('logout') }}" class="dropdown-btn">Logout</a>
+                <a href="{{ url_for('delete_account') }}" class="dropdown-btn delete">Delete Account</a>
             </div>
+        </div>
+    </div>
+</header>
+
+<!-- ================= MAIN ================= -->
+<main>
+    <div class="create-form">
+        <h2 style="text-align:center; margin-bottom:20px;">Новая запись</h2>
+        
+        <!-- Optionales Icon / Bild -->
+        <img class="card__img" src="{{ url_for('static', filename='img/post_icon.png') }}" width="200" height="200" alt="post_icon" style="margin:0 auto; display:block;">
+
+        <form action="{{ url_for('form_create') }}" method="post" enctype="multipart/form-data">
+            <!-- Titel -->
+            <input class="form__input" type="text" name="title" placeholder="Введите заголовок" required>
+
+            <!-- Untertitel -->
+            <input class="form__input" type="text" name="subtitle" placeholder="Введите подзаголовок" required>
+
+            <!-- Textarea -->
+            <textarea class="form__text" name="text" rows="8" placeholder="Напишите что-нибудь..." required></textarea>
+
+            <!-- Submit Button -->
+            <button class="form__button">Создать</button>
         </form>
-        {% endblock %}
-      </main>
+    </div>
+</main>
+
+<!-- ================= DROPDOWN SCRIPT ================= -->
+<script>
+const loginIcon = document.getElementById('login-icon');
+const dropdown = document.getElementById('login-dropdown');
+
+loginIcon.addEventListener('click', (e) => {
+    e.stopPropagation();
+    dropdown.style.display = (dropdown.style.display === 'flex') ? 'none' : 'flex';
+});
+
+document.addEventListener('click', () => {
+    dropdown.style.display = 'none';
+});
+
+dropdown.addEventListener('click', (e) => {
+    e.stopPropagation();
+});
+</script>
+
 </body>
 </html>
