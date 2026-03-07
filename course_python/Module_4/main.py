@@ -84,13 +84,19 @@ def reg():
     return render_template('registration.html')
 
 # ==============================
+# LOGOUT
+# ==============================
+@app.route('/logout')
+def logout():
+    session.pop('user_email', None)
+    return redirect('/')
+
+# ==============================
 # DELETE ACCOUNT
 # ==============================
 @app.route('/delete_account')
 def delete_account():
-
     email = session.get('user_email')
-
     user = User.query.filter_by(email=email).first()
 
     if user:
@@ -99,9 +105,7 @@ def delete_account():
         db.session.commit()
 
     session.clear()
-
     return redirect('/')
-
 
 # ==============================
 # INDEX (NUR EIGENE CARDS)
@@ -190,15 +194,6 @@ def delete_card(id):
     db.session.commit()
 
     return redirect('/index')
-
-
-# ==============================
-# LOGOUT
-# ==============================
-@app.route('/logout')
-def logout():
-    session.pop('user_email', None)
-    return redirect('/')
 
 
 # ==============================

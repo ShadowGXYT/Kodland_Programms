@@ -341,33 +341,43 @@ ul {
 }
 
 /* =========================
-   LOGO DROPDOWN MENU
+   LOGIN HOVER DROPDOWN
 ========================= */
-
-.logo-menu {
-    position: relative;
-    display: inline-block;
+/* Header Layout */
+.header {
+    display: flex;
+    justify-content: space-between; /* Logo links, Login rechts */
+    align-items: center;
+    padding: 20px 2%;
+    margin-bottom: 30px;
 }
 
-.logo {
+/* Logo links */
+.logo-main {
+    width: 50px;
+    height: 50px;
+}
+
+/* Login Icon rechts */
+.header-right .logo {
+    width: 40px;
+    height: 40px;
     cursor: pointer;
 }
 
+/* Dropdown */
 .logo-dropdown {
     position: absolute;
-    top: 40px;
-    left: 0;
+    top: 50px; /* Abstand unter Login-Icon */
+    right: 0;
     background: rgba(30, 41, 59, 0.95);
     border-radius: 10px;
     padding: 10px;
-    display: none;
     flex-direction: column;
     gap: 10px;
     min-width: 150px;
-}
-
-.logo-menu:hover .logo-dropdown {
-    display: flex;
+    z-index: 100;
+    display: none;
 }
 
 .dropdown-btn {
