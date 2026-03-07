@@ -7,56 +7,105 @@
     content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
   >
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
   <title>Дневник программиста</title>
 </head>
+
 <body>
-  <header class="header">
-    <img src="{{ url_for('static', filename='img/logo.svg') }}" alt="logo" width="30" height="30">
-    <ul class="main-list">
-        <li class="list__item">
-          <a href="#">
-            <img src="{{ url_for('static', filename='img/login.svg') }}" alt="login" width="20" height="20">
-          </a>
-        </li>
-    </ul>
-  </header>
 
-  <main>
-    {% block content %}
+<header class="header">
 
-    <h1 class="main__title">Мои записи</h1>
+  <img src="{{ url_for('static', filename='img/logo.svg') }}" alt="logo" width="30" height="30">
 
-    <!-- 🔍 Suchfunktion -->
-    <form method="GET" action="{{ url_for('index') }}" class="search-form">
-        <input type="text" name="search" placeholder="Поиск..." value="{{ request.args.get('search', '') }}">
-        <button type="submit">🔍</button>
-    </form>
+  <ul class="main-list">
 
-    <ul class="cards-list">
-      {% for el in cards %}
-      <li class="card">
-        <a class="card__link" href="{{ url_for('card_detail', id=el.id) }}">
-          <img class="card__img" 
-               src="{{ url_for('static', filename='img/post_icon.png') }}" 
-               width="250" height="250" alt="post_icon">
-          <div class="card__text">
-            <h2 class="card__title">{{ el.title }}</h2>
-            <p class="card__subtitle">{{ el.subtitle }}</p>
-          </div>
+      <li class="list__item">
+        <a href="{{ url_for('logout') }}">
+          <img src="{{ url_for('static', filename='img/login.svg') }}" alt="login" width="20" height="20">
         </a>
       </li>
-      {% endfor %}
 
-      <!-- Create Button -->
-      <li class="card card--creat">
-          <a class="creat__link" href="{{ url_for('create') }}">+</a>
-      </li>
-    </ul>
+  </ul>
 
-    {% endblock %}
-  </main>
+</header>
 
-  <footer></footer>
+
+<main>
+
+{% block content %}
+
+<h1 class="main__title">Мои записи</h1>
+
+
+<!-- 🔍 Search -->
+<form method="GET" action="{{ url_for('index') }}" class="search-form">
+
+    <input
+      type="text"
+      name="search"
+      placeholder="Поиск..."
+      value="{{ request.args.get('search','') }}"
+    >
+
+    <button type="submit">🔍</button>
+
+</form>
+
+
+
+<ul class="cards-list">
+
+{% for el in cards %}
+
+<li class="card">
+
+<a class="card__link" href="{{ url_for('card_detail', id=el.id) }}">
+
+<img
+class="card__img"
+src="{{ url_for('static', filename='img/post_icon.png') }}"
+width="250"
+height="250"
+alt="post_icon"
+>
+
+<div class="card__text">
+
+<h2 class="card__title">{{ el.title }}</h2>
+
+<p class="card__subtitle">{{ el.subtitle }}</p>
+
+</div>
+
+</a>
+
+</li>
+
+{% endfor %}
+
+
+
+<!-- CREATE CARD -->
+
+<li class="card card--creat">
+
+<a class="creat__link" href="{{ url_for('create') }}"></a>
+
+</li>
+
+</ul>
+
+
+{% endblock %}
+
+</main>
+
+
+<footer>
+
+</footer>
+
 </body>
 </html>
