@@ -1,4 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Mulish:wght@400;700&display=swap");
+
+/* Scrollbar ausblenden */
 body::-webkit-scrollbar {
   width: 0;
 }
@@ -47,6 +49,7 @@ ul {
   padding: 0;
 }
 
+/* Header / Navigation */
 .header {
   display: flex;
   justify-content: center;
@@ -84,6 +87,7 @@ ul {
   width: 100%;
 }
 
+/* Home Section */
 .home {
   display: flex;
   flex-direction: column;
@@ -112,6 +116,7 @@ ul {
   line-height: 1;
 }
 
+/* About Section */
 .about {
   margin-bottom: 200px;
 }
@@ -153,6 +158,7 @@ ul {
   align-self: center;
 }
 
+/* Skills Section */
 .skills {
   margin-bottom: 200px;
   display: flex;
@@ -225,7 +231,7 @@ ul {
   gap: 30px;
 }
 
-.project__img{
+.project__img {
   border-radius: 30px;
 }
 
@@ -254,6 +260,7 @@ ul {
   width: 100%;
 }
 
+/* Feedback Section */
 .feedback {
   margin-bottom: 200px;
   display: flex;
@@ -299,6 +306,7 @@ ul {
 
 .form__input {
   width: 100%;
+  max-width: 700px;
   font: inherit;
   background: #2F9A77;
   border: 2px solid #73C8BE;
@@ -349,10 +357,4 @@ ul {
 
 .lang-switch span {
   margin: 0 5px;
-}
-
-/* Größeres Feedbackfeld */
-.form__input {
-  width: 100%;
-  max-width: 700px;
 }
