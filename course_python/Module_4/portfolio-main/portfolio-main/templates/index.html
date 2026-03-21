@@ -79,46 +79,87 @@
       </section>
 
       <!-- SKILLS -->
-      <section class="main__skills skills" id="skills">
-        <h2 class="skills__title"
-            data-en="MY SKILLS"
-            data-de="MEINE SKILLS"
-            data-ru="МОИ НАВЫКИ">MY SKILLS</h2>
+          <section class="main__skills skills" id="skills">
+            <h2 class="skills__title"
+                data-en="MY SKILLS"
+                data-de="MEINE SKILLS"
+                data-ru="МОИ НАВЫКИ">MY SKILLS</h2>
 
-        <form action="/" method="POST">
-          <ul class="skills__list skills-list">
-            <li class="skills-list__skill skill">
-              <img src="../static/img/python.png" width="150" />
-              <span class="skill__info">Python Projects & Automation</span>
-              <input class="skill__button" type="submit" name="button_python" value="SHOW PROJECT">
-            </li>
-            <li class="skills-list__skill skill">
-              <img src="../static/img/telegramm.png" width="150" />
-              <span class="skill__info">Telegram </span>
-              <input class="skill__button" type="submit" name="button_discord" value="SHOW PROJECT">
-            </li>
-            <li class="skills-list__skill skill">
-              <img src="../static/img/html.png" width="150" />
-              <span class="skill__info">HTML & CSS Websites</span>
-              <input class="skill__button" type="submit" name="button_html" value="SHOW PROJECT">
-            </li>
-            <li class="skills-list__skill skill">
-              <img src="../static/img/db.webp" width="150" />
-              <span class="skill__info">SQL & Databases</span>
-              <input class="skill__button" type="submit" name="button_db" value="SHOW PROJECT">
-            </li>
-          </ul>
-        </form>
+          {% if button_python %}
+          <div class="skills__project project">
+            <img src="../static/img/python-project.png" width="500">
+            <a class="project__link" href="https://github.com/ShadowGXYT/Kodland_Programms" target="_blank">
+              Python Project
+            </a>
+          </div>
+          {% endif %}
 
-        {% if button_python %}
-        <div class="skills__project project">
-          <img src="../static/img/python-project.png" width="500">
-          <a class="project__link" href="https://github.com/ShadowGXYT/Kodland_Programms" target="_blank">
-            Open on GitHub
-          </a>
-        </div>
-        {% endif %}
-      </section>
+          {% if button_telegram %}
+          <div class="skills__project project">
+            <img src="../static/img/telegramm.png" width="500">
+            <a class="project__link" href="https://github.com/ShadowGXYT/Kodland_Programms/blob/main/course_python/Module_1/Lection_4/FinalBot.py" target="_blank">
+              Telegram Bot
+            </a>
+          </div>
+          {% endif %}
+
+          {% if button_websites %}
+          <div class="skills__project project">
+            <img src="../static/img/html.png" width="500">
+            <a class="project__link" href="https://github.com/ShadowGXYT/Kodland_Programms/tree/main/course_python/Module_2/Lection_3/Website" target="_blank">
+              Websites
+            </a>
+          </div>
+          {% endif %}
+
+          {% if button_sql %}
+          <div class="skills__project project">
+            <img src="../static/img/db.webp" width="500">
+            <a class="project__link" href="https://github.com/ShadowGXYT/Kodland_Programms/tree/main/course_python/Module_4/diary" target="_blank">
+              SQL Project
+            </a>
+          </div>
+          {% endif %}
+            </form>
+
+            <!-- Projekt‑Boxen -->
+            {% if button_python %}
+            <div class="skills__project project">
+              <img src="../static/img/python-project.png" width="500">
+              <a class="project__link" href="https://github.com/ShadowGXYT/Kodland_Programms" target="_blank">
+                Python Project
+              </a>
+            </div>
+            {% endif %}
+
+            {% if button_telegram %}
+            <div class="skills__project project">
+              <img src="../static/img/telegramm.png" width="500">
+              <a class="project__link" href="https://github.com/ShadowGXYT/Kodland_Programms/blob/main/course_python/Module_1/Lection_4/FinalBot.py" target="_blank">
+                Telegram Bot
+              </a>
+            </div>
+            {% endif %}
+
+            {% if button_websites %}
+            <div class="skills__project project">
+              <img src="../static/img/html.png" width="500">
+              <a class="project__link" href="https://github.com/ShadowGXYT/Kodland_Programms/tree/main/course_python/Module_2/Lection_3/Website" target="_blank">
+                Websites
+              </a>
+            </div>
+            {% endif %}
+
+            {% if button_sql %}
+            <div class="skills__project project">
+              <img src="../static/img/db.webp" width="500">
+              <a class="project__link" href="https://github.com/ShadowGXYT/Kodland_Programms/tree/main/course_python/Module_4/diary" target="_blank">
+                SQL Project
+              </a>
+            </div>
+            {% endif %}
+
+          </section>
 
       <!-- FEEDBACK -->
       <section class="main__feedback feedback" id="feedback">
