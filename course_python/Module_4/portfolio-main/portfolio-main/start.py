@@ -4,7 +4,7 @@ import smtplib
 app = Flask(__name__)
 
 about_texts = {
-    'en': "I'm a student from Switzerland. I enjoy playing tennis in my free time and I'm very interested in technology and programming. I regularly take programming courses at Kodland, where I improve my skills in web development, Python, and building projects like bots and websites.",
+    'en': "Im a student from Switzerland. I enjoy playing tennis in my free time and Im very interested in technology and programming. I regularly take programming courses at Kodland, where I improve my skills in web development, Python, and building projects like bots and websites.",
     'de': "Ich bin ein Schüler aus der Schweiz. In meiner Freizeit spiele ich gerne Tennis und interessiere mich sehr für Technologie und Programmierung. Ich nehme regelmäßig an Programmierkursen bei Kodland teil, wo ich meine Fähigkeiten in Webentwicklung, Python und beim Erstellen von Projekten wie Bots und Websites verbessere.",
     'ru': "Я ученик из Швейцарии. В свободное время я люблю играть в теннис и очень интересуюсь технологиями и программированием. Я регулярно прохожу курсы программирования в Kodland, где улучшаю свои навыки веб-разработки, Python и создания проектов, таких как боты и сайты."
 }
