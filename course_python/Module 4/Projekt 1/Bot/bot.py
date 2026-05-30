@@ -10,7 +10,7 @@ import telebot
 from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
 from General.flight_planner import search_best_flights, AIRPORT_TRANSLATOR, COUNTRY_TO_AIRPORTS
 
-BOT_TOKEN = "8988008991:AAEfj7PwPH2RND4tCEpcEKDX4bzALOPcvdA"
+BOT_TOKEN = "Bot_Token"
 bot = telebot.TeleBot(BOT_TOKEN)
 
 # Temporärer Speicher für die interaktive Suche (User-ID -> Suchdaten)
