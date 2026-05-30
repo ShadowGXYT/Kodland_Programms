@@ -1,3 +1,50 @@
+# ✈️ SWISS-Inspired Flight Planner & Telegram Bot
+
+Ein interaktives, plattformübergreifendes Flugsuchsystem im edlen Design der Fluggesellschaft SWISS. Das Projekt besteht aus einer **Flask-Webseite** mit Dark/Light-Mode und einem **Telegram-Bot**. Beide greifen parallel auf ein zentrales Logik-Modul und eine gemeinsame Flugdatenbank zu.
+
+---
+
+## 🚀 Features
+
+### 🌐 Flask Web-Plattform
+* **Echtzeit-Suche:** Filtere Flüge nach Abflughafen, Zielort, maximalem Preis und gewünschter Uhrzeit.
+* **Modernes SWISS-Design:** Clean, reaktionsschnell und übersichtlich.
+* **Dark / Light Mode:** Flexibler Wechsel des Themes per Knopfdruck.
+* **Mehrsprachigkeit & Währungen:** Voller Support für DE, EN, FR, IT, RU sowie Währungsumrechnungen in CHF, EUR, USD, GBP und RUB (Rubel).
+* **Direktbuchung:** Integriertes Buchungs-Template mit automatisierter Ticket-ID Generierung und interaktivem 5-Sterne-Bewertungssystem.
+
+### 🤖 Telegram Bot
+* **Schnellsuche:** Abfrage über `/flight [Start] [Ziel]` direkt im Chat.
+* **Fehlertolerant:** Erkennt Ländernamen (z. B. "Schweiz") und ordnet sie automatisch den passenden Flughäfen zu.
+
+---
+
+## 📁 Projekt-Struktur
+
+```text
+PROJEKT 1/
+│
+├── Bot/
+│   └── bot.py               # Der Telegram-Bot (PyTelegramBotAPI)
+│
+├── General/
+│   ├── __init__.py
+│   ├── flight_planner.py    # Das Rechnerzentrum (Zentrale Logik & Übersetzungen)
+│   └── flights.json         # Die gemeinsame Flug-Datenbank
+│
+├── Webpage/
+│   ├── static/
+│   │   ├── app.js           # Theme-Wechsler JavaScript
+│   │   └── style.css        # Komplette Stylesheets (Dark/Light)
+│   └── templates/
+│       ├── index.html       # Hauptsuchmaske
+│       └── booking.html     # Buchungsbestätigung & Bewertung
+│
+├── Pipfile                  # Abhängigkeiten (Flask, telebot, etc.)
+└── README.md                # Dokumentation
+```
+
+
 🚀 Projekt-Anleitung: Interaktive Flugsuche (Web & Telegram Bot)
 Diese Anleitung erklärt dir Schritt für Schritt, was du für das Projekt benötigst, wie du alle Abhängigkeiten installierst und wie du die Flask-Webseite sowie den Telegram-Bot parallel startest.
 
