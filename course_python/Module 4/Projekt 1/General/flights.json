@@ -1,0 +1,21 @@
+[
+  { "von": "ZRH", "nach": "BCN", "zeit": "11:00", "preis_eco": 95.0, "preis_biz": 240.0, "airline": "Vueling" },
+  { "von": "ZRH", "nach": "DXB", "zeit": "15:45", "preis_eco": 450.0, "preis_biz": 1800.0, "airline": "Swiss" },
+  { "von": "ZRH", "nach": "LHR", "zeit": "08:15", "preis_eco": 110.0, "preis_biz": 320.0, "airline": "British Airways" },
+  { "von": "ZRH", "nach": "JFK", "zeit": "13:00", "preis_eco": 520.0, "preis_biz": 2100.0, "airline": "Swiss" },
+  { "von": "BSL", "nach": "PMI", "zeit": "05:45", "preis_eco": 45.0, "preis_biz": 150.0, "airline": "EasyJet" },
+  { "von": "BSL", "nach": "BCN", "zeit": "14:20", "preis_eco": 65.0, "preis_biz": 180.0, "airline": "EasyJet" },
+  { "von": "GVA", "nach": "MAD", "zeit": "12:15", "preis_eco": 140.0, "preis_biz": 390.0, "airline": "Iberia" },
+  { "von": "GVA", "nach": "LHR", "zeit": "18:30", "preis_eco": 85.0, "preis_biz": 290.0, "airline": "EasyJet" },
+  { "von": "BCN", "nach": "DXB", "zeit": "22:30", "preis_eco": 310.0, "preis_biz": 1200.0, "airline": "Emirates" },
+  { "von": "LHR", "nach": "JFK", "zeit": "10:00", "preis_eco": 380.0, "preis_biz": 1950.0, "airline": "Virgin Atlantic" },
+  { "von": "LHR", "nach": "ZRH", "zeit": "14:20", "preis_eco": 125.0, "preis_biz": 340.0, "airline": "British Airways" },
+  { "von": "JFK", "nach": "ZRH", "zeit": "20:45", "preis_eco": 610.0, "preis_biz": 2400.0, "airline": "Delta Air Lines" },
+  { "von": "MAD", "nach": "PMI", "zeit": "09:15", "preis_eco": 35.0, "preis_biz": 95.0, "airline": "Air Europa" },
+  { "von": "DXB", "nach": "ZRH", "zeit": "02:15", "preis_eco": 490.0, "preis_biz": 1900.0, "airline": "Emirates" },
+  
+  { "von": "ZRH", "nach": "SVO", "zeit": "09:30", "preis_eco": 320.0, "preis_biz": 850.0, "airline": "Aeroflot" },
+  { "von": "SVO", "nach": "DXB", "zeit": "16:10", "preis_eco": 280.0, "preis_biz": 1100.0, "airline": "Flydubai" },
+  { "von": "SVO", "nach": "BCN", "zeit": "06:00", "preis_eco": 340.0, "preis_biz": 920.0, "airline": "Turkish Airlines" },
+  { "von": "LED", "nach": "ZRH", "zeit": "11:15", "preis_eco": 390.0, "preis_biz": 980.0, "airline": "Air Serbia" }
+]

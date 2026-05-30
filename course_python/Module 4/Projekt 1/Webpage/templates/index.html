@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ text.title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="dark-mode" id="theme-body">
+
+    <div class="utility-bar">
+        <div class="utility-container">
+            <button class="theme-toggle-btn" id="theme-toggle" onclick="toggleTheme()">☀️ Light Mode</button>
+            
+            <div class="dropdown-utility">
+                <button class="util-btn">🌐 {{ lang }}</button>
+                <div class="util-content">
+                    <a href="/?lang=DE&currency={{ currency }}">Deutsch (DE)</a>
+                    <a href="/?lang=EN&currency={{ currency }}">English (EN)</a>
+                    <a href="/?lang=FR&currency={{ currency }}">Français (FR)</a>
+                    <a href="/?lang=IT&currency={{ currency }}">Italiano (IT)</a>
+                    <a href="/?lang=RU&currency={{ currency }}">Русский (RU)</a>
+                </div>
+            </div>
+
+            <div class="dropdown-utility">
+                <button class="util-btn">💵 {{ currency }}</button>
+                <div class="util-content">
+                    <a href="/?lang={{ lang }}&currency=CHF">CHF (🇨🇭)</a>
+                    <a href="/?lang={{ lang }}&currency=EUR">EUR (🇪🇺)</a>
+                    <a href="/?lang={{ lang }}&currency=USD">USD (🇺🇸)</a>
+                    <a href="/?lang={{ lang }}&currency=GBP">GBP (🇬🇧)</a>
+                    <a href="/?lang={{ lang }}&currency=RUB">RUB (🇷🇺)</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="search-container">
+        <h1>{{ text.title }}</h1>
+        <p class="subtitle">{{ text.subtitle }}</p>
+
+        <form action="/" method="post">
+            <input type="hidden" name="lang_hidden" value="{{ lang }}">
+            <input type="hidden" name="currency_hidden" value="{{ currency }}">
+
+            <div class="form-group">
+                <label><span class="icon">🛫</span> {{ text.from }}</label>
+                <select name="von">
+                    <option value="any">-- Egal / Everywhere --</option>
+                    <option value="Switzerland">Schweiz (ZRH, BSL, GVA)</option>
+                    <option value="Spain">Spanien (BCN, PMI, MAD)</option>
+                    <option value="ZRH">Zürich (ZRH)</option>
+                    <option value="BSL">Basel (BSL)</option>
+                    <option value="GVA">Genf (GVA)</option>
+                    <option value="DXB">Dubai (DXB)</option>
+                    <option value="LHR">London (LHR)</option>
+                    <option value="JFK">New York (JFK)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label><span class="icon">🛬</span> {{ text.to }}</label>
+                <select name="nach">
+                    <option value="any">-- Egal / Everywhere --</option>
+                    <option value="Switzerland">Schweiz (ZRH, BSL, GVA)</option>
+                    <option value="Spain">Spanien (BCN, PMI, MAD)</option>
+                    <option value="ZRH">Zürich (ZRH)</option>
+                    <option value="BSL">Basel (BSL)</option>
+                    <option value="GVA">Genf (GVA)</option>
+                    <option value="DXB">Dubai (DXB)</option>
+                    <option value="LHR">London (LHR)</option>
+                    <option value="JFK">New York (JFK)</option>
+                </select>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label><span class="icon">💰</span> {{ text.max_price }} ({{ symbol }})</label>
+                    <input type="number" name="max_preis" placeholder="z.B. 300">
+                </div>
+
+                <div class="form-group">
+                    <label><span class="icon">🕒</span> {{ text.time_pref }}</label>
+                    <input type="text" name="uhrzeit" placeholder="{{ text.placeholder_time }}">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label><span class="icon">💺</span> {{ text.class }}</label>
+                <select name="klasse">
+                    <option value="ECO">Economy Class</option>
+                    <option value="BIZ">Business Class</option>
+                </select>
+            </div>
+
+            <button type="submit" class="search-btn">🚀 {{ text.search_btn }}</button>
+        </form>
+
+        {% if fehler %}
+            <div class="error-box">{{ fehler }}</div>
+        {% endif %}
+
+        {% if ergebnisse %}
+            <hr class="divider">
+            <h2>{{ text.results_title }}</h2>
+            <div class="results-list">
+                {% for flug in ergebnisse %}
+                    <div class="flight-card">
+                        <div class="flight-header">
+                            <span class="airline">{{ flug.airline }}</span>
+                            <span class="price">{{ "%.2f"|format(flug.preis) }} {{ symbol }}</span>
+                        </div>
+                        <div class="flight-route">
+                            <span><strong>{{ flug.von }}</strong></span>
+                            <span class="arrow">→</span>
+                            <span><strong>{{ flug.nach }}</strong></span>
+                        </div>
+                        <div class="flight-footer" style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px;">
+                            <span>🕒 {{ flug.zeit }}</span>
+                            
+                            <form action="/book" method="post" style="margin: 0; padding: 0; width: auto;">
+                                <input type="hidden" name="airline" value="{{ flug.airline }}">
+                                <input type="hidden" name="von" value="{{ flug.von }}">
+                                <input type="hidden" name="nach" value="{{ flug.nach }}">
+                                <input type="hidden" name="zeit" value="{{ flug.zeit }}">
+                                <input type="hidden" name="preis" value="{{ '%.2f'|format(flug.preis) }}">
+                                <input type="hidden" name="symbol" value="{{ symbol }}">
+                                <button type="submit" class="book-inline-btn">Buchen ➔</button>
+                            </form>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

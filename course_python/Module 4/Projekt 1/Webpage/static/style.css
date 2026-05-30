@@ -1,0 +1,315 @@
+/* Globale Variablen für Dark und Light Mode */
+.dark-mode {
+    --bg-color: #1a1a1a;
+    --card-bg: #262626;
+    --input-bg: #333333;
+    --input-border: #444444;
+    --text-main: #ffffff;
+    --text-muted: #b3b3b3;
+    --card-hover-bg: #2d2d2d;
+}
+
+.light-mode {
+    --bg-color: #f4f4f6;
+    --card-bg: #ffffff;
+    --input-bg: #ffffff;
+    --input-border: #cccccc;
+    --text-main: #1a1a1a;
+    --text-muted: #666666;
+    --card-hover-bg: #f9f9f9;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    margin: 0;
+    padding: 100px 20px 40px 20px; /* Platz für die obere Box lassen */
+    display: flex;
+    justify-content: center;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Rote Utility-Bar oben rechts */
+.utility-bar {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #c91414; /* SWISS-Rot */
+    padding: 8px 15px;
+    border-radius: 4px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 100;
+}
+
+.utility-container {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+/* Buttons in der Utility-Bar */
+.util-btn, .theme-toggle-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-weight: bold;
+    font-size: 13px;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 3px;
+    transition: background 0.2s;
+}
+
+.util-btn:hover, .theme-toggle-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Dropdowns in der Utility-Bar */
+.dropdown-utility {
+    position: relative;
+    display: inline-block;
+}
+
+.util-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #ffffff;
+    min-width: 140px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    border-radius: 4px;
+    z-index: 101;
+}
+
+.util-content a {
+    color: #1a1a1a !important;
+    padding: 10px 12px;
+    text-decoration: none;
+    display: block;
+    font-size: 13px;
+}
+
+.util-content a:hover {
+    background-color: #f4f4f6;
+}
+
+.dropdown-utility:hover .util-content {
+    display: block;
+}
+
+/* Haupt-Such-Container */
+.search-container {
+    background-color: var(--card-bg);
+    width: 100%;
+    max-width: 550px;
+    padding: 35px;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    border-top: 4px solid #c91414;
+    transition: background-color 0.3s;
+}
+
+h1 {
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0 0 5px 0;
+    text-align: center;
+}
+
+.subtitle {
+    color: var(--text-muted);
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-main);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Eingabefelder */
+input[type="text"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 12px 15px;
+    background-color: var(--input-bg);
+    border: 1px solid var(--input-border);
+    border-radius: 4px;
+    color: var(--text-main);
+    font-size: 15px;
+    box-sizing: border-box;
+    height: 46px;
+    transition: background-color 0.3s, border-color 0.2s, color 0.3s;
+}
+
+select {
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='gray' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 10px top 50%;
+    padding-right: 30px;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: #c91414;
+}
+
+.search-btn {
+    width: 100%;
+    padding: 14px;
+    background-color: #c91414;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: 10px;
+}
+
+.search-btn:hover {
+    background-color: #a81010;
+}
+
+.divider {
+    border: 0;
+    height: 1px;
+    background: var(--input-border);
+    margin: 30px 0;
+}
+
+h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+/* Karten */
+.results-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.flight-card {
+    background-color: var(--input-bg);
+    border-left: 4px solid #c91414;
+    padding: 15px 20px;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.flight-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.airline {
+    font-weight: bold;
+    color: var(--text-muted);
+    font-size: 14px;
+}
+
+.price {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.arrow {
+    color: #c91414;
+}
+
+.flight-footer {
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+/* Inline Buchen Button in der Flugkarte */
+.book-inline-btn {
+    background-color: #ffffff;
+    color: #1a1a1a;
+    border: 1px solid #444444;
+    padding: 6px 12px;
+    font-size: 13px;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.book-inline-btn:hover {
+    background-color: #c91414;
+    color: white;
+    border-color: #c91414;
+}
+
+/* Zurück-Link */
+.back-link {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.back-link:hover {
+    color: #ffffff;
+}
+
+/* Buchungserfolg-Icon */
+.success-icon {
+    font-size: 50px;
+    margin-bottom: 10px;
+    animation: pop 0.4s ease-out;
+}
+
+/* Interaktives Sterne-Rating */
+.star-rating {
+    font-size: 40px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    user-select: none;
+}
+
+.star {
+    color: #555555;
+    transition: color 0.1s;
+}
+
+.star:hover, .star.selected {
+    color: #ffcc00; /* Goldene Sterne */
+}
+
+@keyframes pop {
+    0% { transform: scale(0.5); }
+    100% { transform: scale(1); }
+}

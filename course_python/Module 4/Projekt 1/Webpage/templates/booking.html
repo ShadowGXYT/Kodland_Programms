@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buchung & Bewertung - SWISS Inspired</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="dark-mode" id="theme-body">
+
+    <div class="search-container">
+        <div id="booking-section">
+            <h1>🔒 Buchung abschliessen</h1>
+            <p class="subtitle">Bitte überprüfen Sie Ihre Flugdetails</p>
+
+            <div class="flight-card" style="margin-bottom: 25px;">
+                <div class="flight-header">
+                    <span class="airline">{{ flug.airline }}</span>
+                    <span class="price">{{ flug.preis }} {{ symbol }}</span>
+                </div>
+                <div class="flight-route">
+                    <span><strong>{{ flug.von }}</strong></span>
+                    <span class="arrow">→</span>
+                    <span><strong>{{ flug.nach }}</strong></span>
+                </div>
+                <div class="flight-footer">
+                    <span>🕒 Abflug: {{ flug.zeit }} Uhr</span>
+                </div>
+            </div>
+
+            <button class="search-btn" onclick="confirmBooking()">Jetzt kostenpflichtig buchen</button>
+            <a href="/" class="back-link">← Zurück zur Suche</a>
+        </div>
+
+        <div id="rating-section" style="display: none; text-align: center;">
+            <div class="success-icon">🎉</div>
+            <h1>Flug erfolgreich gebucht!</h1>
+            <p class="subtitle">Ihre Ticket-ID: #SWISS-{{ range(1000, 9999) | random }}</p>
+            
+            <hr class="divider">
+            
+            <h3>Wie zufrieden sind Sie mit Ihrer Suche?</h3>
+            <div class="star-rating">
+                <span class="star" onclick="setRating(1)">★</span>
+                <span class="star" onclick="setRating(2)">★</span>
+                <span class="star" onclick="setRating(3)">★</span>
+                <span class="star" onclick="setRating(4)">★</span>
+                <span class="star" onclick="setRating(5)">★</span>
+            </div>
+            <p id="rating-message" style="margin-top: 15px; font-weight: bold; color: #c91414;"></p>
+            
+            <a href="/" class="search-btn" style="text-decoration: none; display: block; margin-top: 25px;">Neue Suche starten</a>
+        </div>
+    </div>
+
+    <script>
+        function confirmBooking() {
+            // Blendet die Buchung aus und die Bewertung ein
+            document.getElementById('booking-section').style.display = 'none';
+            document.getElementById('rating-section').style.display = 'block';
+        }
+
+        function setRating(stars) {
+            const starElements = document.querySelectorAll('.star');
+            starElements.forEach((star, index) => {
+                if (index < stars) {
+                    star.classList.add('selected');
+                } else {
+                    star.classList.remove('selected');
+                }
+            });
+            
+            const msg = document.getElementById('rating-message');
+            msg.innerText = `❤️ Vielen Dank für ${stars} von 5 Sternen!`;
+        }
+    </script>
+</body>
+</html>
